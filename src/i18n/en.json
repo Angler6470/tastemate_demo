@@ -1,8 +1,10 @@
 {
-  "welcome": "👋 Hi! I’m TasteMate, your flavor buddy. Based on your cravings, here’s a tasty pick:",
-  "sample": "Mac & Melt Bites (Cheesy and Mild)",
+  "welcome": "👋 Hi! I'm TasteMate, your flavor buddy, let me help you choose the perfect meal!",
   "inputPlaceholder": "Tell me what you're craving...",
   "spicePrompt": "How Spicy?",
   "surprise": "🎲 Surprise Me",
-  "send": "📨 Send"
+  "send": "📨 Send",
+  "promo1": "Two classic tacos with your choice of protein, topped with fresh salsa and cheese. Perfect for a quick, craveable meal!",
+  "promo2": "A vibrant platter of tortilla chips served with three house-made salsas: mild tomato, medium verde, and fiery habanero.",
+  "promo3": "Golden fried cheese bites with a creamy dipping sauce. Melty, gooey, and perfect for late-night cravings."
 }

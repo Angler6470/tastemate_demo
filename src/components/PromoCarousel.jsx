@@ -1,14 +1,16 @@
 import React, { useEffect, useState } from "react";
+import { useLang } from '../context/LanguageContext';
 import config from "../data/config.json";
 
 // PromoCarousel component: cycles through featured promos
 export default function PromoCarousel() {
+	const { t } = useLang();
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [imgLoaded, setImgLoaded] = useState(false);
 	const promos = config.promos.map((p, i) => ({
 		id: i,
 		imageUrl: `/images/${p.image}`,
-		caption: p.label,
+		caption: t(`promo${i + 1}`),
 	}));
 
 	useEffect(() => {

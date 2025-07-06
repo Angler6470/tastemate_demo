@@ -1,16 +1,14 @@
+
 {
   "promos": [
     {
-      "image": "promo1.png",
-      "label": "Two classic tacos with your choice of protein, topped with fresh salsa and cheese. Perfect for a quick, craveable meal!"
+      "image": "promo1.png"
     },
     {
-      "image": "promo2.png",
-      "label": "A vibrant platter of tortilla chips served with three house-made salsas: mild tomato, medium verde, and fiery habanero."
+      "image": "promo2.png"
     },
     {
-      "image": "promo3.png",
-      "label": "Golden fried cheese bites with a creamy dipping sauce. Melty, gooey, and perfect for late-night cravings."
+      "image": "promo3.png"
     }
   ],
   "flavors": [
@@ -26,7 +24,6 @@
     "Crunchy"
   ],
   "messages": {
-    "welcome": "👋 Hi! I'm TasteMate, your flavor buddy, let me help you choose the perfect meal!",
     "inputPlaceholder": "Tell me what you're craving...",
     "spicePrompt": "How Spicy?"
   }
