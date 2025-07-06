@@ -9,15 +9,16 @@ dotenv.config({ path: path.resolve(process.cwd(), '../.env') });
 const router = express.Router();
 const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY });
 
-// Load menu from Menu.jsx or a JSON file
+// Load menu from menu.json
 let menu = [];
 try {
-  // Try to load menu from a JSON file for simplicity
-  const menuPath = path.resolve(process.cwd(), 'src/data/menu.json');
+  // Load menu from the correct path relative to backend
+  const menuPath = path.resolve(process.cwd(), '../src/data/menu.json');
   if (fs.existsSync(menuPath)) {
     menu = JSON.parse(fs.readFileSync(menuPath, 'utf-8'));
   }
 } catch (e) {
+  console.log('Could not load menu.json, using empty menu');
   menu = [];
 }
 
@@ -35,7 +36,7 @@ router.post('/', async (req, res) => {
     'extremely spicy'
   ][spiceLevel || 0];
 
-  const systemPrompt = `You are TasteMate, a food recommendation bot. Only suggest dishes from this menu:\n${menuList}\nThe user wants something ${spiceText}. Respond in a friendly, concise way and only use menu items.`;
+  const systemPrompt = `You are TasteMate, a food recommendation bot for a Mexican restaurant. You MUST ONLY recommend dishes from this exact menu - do not suggest anything else:\n\n${menuList}\n\nThe user wants something ${spiceText}. Choose the best matching item(s) from the menu above. Be friendly and concise, and NEVER suggest items not on this menu. If no perfect match exists, recommend the closest option from the menu.`;
 
   try {
     const completion = await openai.chat.completions.create({
