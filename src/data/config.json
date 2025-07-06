@@ -2,15 +2,15 @@
   "promos": [
     {
       "image": "promo1.png",
-      "label": "Taco Tuesday"
+      "label": "Two classic tacos with your choice of protein, topped with fresh salsa and cheese. Perfect for a quick, craveable meal!"
     },
     {
       "image": "promo2.png",
-      "label": "Salsa Fiesta"
+      "label": "A vibrant platter of tortilla chips served with three house-made salsas: mild tomato, medium verde, and fiery habanero."
     },
     {
       "image": "promo3.png",
-      "label": "Cheesy Nights"
+      "label": "Golden fried cheese bites with a creamy dipping sauce. Melty, gooey, and perfect for late-night cravings."
     }
   ],
   "flavors": [
@@ -26,7 +26,7 @@
     "Crunchy"
   ],
   "messages": {
-    "welcome": "👋 Hi! I'm TasteMate, your flavor buddy. Based on your cravings, here's a tasty pick:",
+    "welcome": "👋 Hi! I'm TasteMate, your flavor buddy, let me help you choose the perfect meal!",
     "inputPlaceholder": "Tell me what you're craving...",
     "spicePrompt": "How Spicy?"
   }

@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import config from '../data/config.json';
+import React, { useEffect, useState } from "react";
+import config from "../data/config.json";
 
 // PromoCarousel component: cycles through featured promos
 export default function PromoCarousel() {
@@ -8,7 +8,7 @@ export default function PromoCarousel() {
 	const promos = config.promos.map((p, i) => ({
 		id: i,
 		imageUrl: `/images/${p.image}`,
-		caption: p.label
+		caption: p.label,
 	}));
 
 	useEffect(() => {
@@ -29,14 +29,14 @@ export default function PromoCarousel() {
 			<div className="relative w-full rounded-xl overflow-hidden shadow-xl aspect-video bg-gray-100 dark:bg-gray-800">
 				{/* Promo image */}
 				<img
-				  key={currentPromo.imageUrl}
-				  src={currentPromo.imageUrl}
-				  alt="Promo"
-				  className={`w-full h-full object-cover fade-in${imgLoaded ? ' loaded' : ''}`}
-				  onLoad={() => setImgLoaded(true)}
+					key={currentPromo.imageUrl}
+					src={currentPromo.imageUrl}
+					alt="Promo"
+					className={`w-full h-full object-cover fade-in${imgLoaded ? " loaded" : ""}`}
+					onLoad={() => setImgLoaded(true)}
 				/>
 				{/* Caption overlay */}
-				<div className="absolute bottom-0 left-0 w-full bg-black/60 text-white text-xs sm:text-sm font-semibold text-center px-2 sm:px-4 py-2 sm:py-3 z-10 backdrop-blur-sm">
+				<div className="absolute bottom-0 left-0 w-full bg-black/40 text-white text-xs sm:text-sm font-semibold text-center px-2 sm:px-4 py-2 sm:py-3 z-10 backdrop-blur-sm">
 					{currentPromo.caption}
 				</div>
 			</div>
@@ -46,7 +46,7 @@ export default function PromoCarousel() {
 					<div
 						key={promo.id}
 						className={`h-2 w-2 rounded-full transition-all duration-300 ${
-							idx === currentIndex ? 'bg-teal-500 scale-125' : 'bg-gray-300'
+							idx === currentIndex ? "bg-teal-500 scale-125" : "bg-gray-300"
 						}`}
 					/>
 				))}
