@@ -1,0 +1,34 @@
+{
+  "promos": [
+    {
+      "image": "promo1.png",
+      "label": "Taco Tuesday"
+    },
+    {
+      "image": "promo2.png",
+      "label": "Salsa Fiesta"
+    },
+    {
+      "image": "promo3.png",
+      "label": "Cheesy Nights"
+    }
+  ],
+  "flavors": [
+    "Sweet",
+    "Savory",
+    "Spicy",
+    "Tangy",
+    "Creamy",
+    "Smoky",
+    "Fresh",
+    "Vegetarian",
+    "Cheesy",
+    "Crunchy"
+  ],
+  "messages": {
+    "welcome": "👋 Hi! I’m TasteMate, your flavor buddy. Based on your cravings, here’s a tasty pick:",
+    "sample": "Mac & Melt Bites (Cheesy and Mild)",
+    "inputPlaceholder": "Tell me what you're craving...",
+    "spicePrompt": "How Spicy?"
+  }
+}

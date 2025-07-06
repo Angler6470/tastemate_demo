@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Taco Tuesday Special",
+    "description": "Three classic tacos with your choice of protein, topped with fresh salsa and cheese. Perfect for a quick, craveable meal!",
+    "spicyLevel": 2,
+    "tags": ["promo", "taco", "special"]
+  },
+  {
+    "name": "Salsa Fiesta",
+    "description": "A vibrant platter of tortilla chips served with three house-made salsas: mild tomato, medium verde, and fiery habanero.",
+    "spicyLevel": 3,
+    "tags": ["promo", "salsa", "shareable"]
+  },
+  {
+    "name": "Cheesy Nights",
+    "description": "Golden fried cheese bites with a creamy dipping sauce. Melty, gooey, and perfect for late-night cravings.",
+    "spicyLevel": 1,
+    "tags": ["promo", "cheese", "snack"]
+  },
+  {
+    "name": "Chipotle Chicken Crunchwrap",
+    "description": "Grilled chicken, chipotle sauce, lettuce, and cheese wrapped in a crispy tortilla. Bold, spicy, and smoky.",
+    "spicyLevel": 4,
+    "tags": ["wrap", "chicken", "spicy"]
+  },
+  {
+    "name": "Elote Loco",
+    "description": "Creamy, cheesy, chili-laced corn on the cob, finished with lime and cilantro.",
+    "spicyLevel": 2,
+    "tags": ["corn", "vegetarian", "mexican"]
+  },
+  {
+    "name": "Mac & Melt Bites",
+    "description": "Cheesy macaroni bites, lightly fried and served with a mild dipping sauce.",
+    "spicyLevel": 0,
+    "tags": ["cheese", "vegetarian", "mild"]
+  },
+  {
+    "name": "Firecracker Quesadilla",
+    "description": "A quesadilla loaded with pepper jack cheese, jalapeños, and a spicy chipotle drizzle.",
+    "spicyLevel": 3,
+    "tags": ["quesadilla", "spicy", "cheese"]
+  },
+  {
+    "name": "Veggie Crunch Bowl",
+    "description": "A fresh bowl of greens, roasted veggies, and crispy tortilla strips, tossed in a tangy lime vinaigrette.",
+    "spicyLevel": 1,
+    "tags": ["vegetarian", "bowl", "fresh"]
+  }
+]
