@@ -18,16 +18,16 @@ app.use('/api/stats', statsRoutes);
 app.use('/api/chat', chatRoutes);
 
 // Use process.env.PORT for server port
-const PORT = process.env.PORT || 5000; // Port for backend server
+const PORT = process.env.PORT || 3001; // Port for backend server
 const MONGO_URI = process.env.MONGO_URI || 'mongodb://localhost:27017/tastemate'; // MongoDB connection string
 
 mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+    app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT}`));
   })
   .catch(err => {
     console.error('MongoDB connection error:', err);
     console.log('Running in demo mode without database');
     // Start server anyway without database
-    app.listen(PORT, () => console.log(`Server running on port ${PORT} (demo mode)`));
+    app.listen(PORT, '0.0.0.0', () => console.log(`Server running on port ${PORT} (demo mode)`));
   });

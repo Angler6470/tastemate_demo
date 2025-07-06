@@ -11,5 +11,5 @@ if ! npx --no-install concurrently --version >/dev/null 2>&1; then
   npm install --save-dev concurrently
 fi
 
-# Start backend and frontend together
-npx concurrently "cd backend && npm start" "npm run dev"
+# Start both frontend and backend concurrently
+npx concurrently "cd backend && PORT=3001 npm start" "npm run dev"

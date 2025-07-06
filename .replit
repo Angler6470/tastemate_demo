@@ -18,3 +18,15 @@ externalPort = 80
 [[ports]]
 localPort = 5174
 externalPort = 3000
+
+[workflows]
+runButton = "Start TasteMate"
+
+[[workflows.workflow]]
+name = "Start TasteMate"
+author = 41649242
+mode = "sequential"
+
+[[workflows.workflow.tasks]]
+task = "shell.exec"
+args = "chmod +x start.sh && ./start.sh"
