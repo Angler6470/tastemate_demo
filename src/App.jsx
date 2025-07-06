@@ -58,20 +58,39 @@ export default function App() {
     setSurpriseLoading(false);
   };
 
-  // Handler for hotkey click to get a fun prompt from OpenAI
+  // Handler for hotkey click to get a fun prompt from OpenAI and auto-send
   const handleFlavorClick = async (flavor) => {
     setLoading(true);
     try {
+      // First, get the creative prompt
       const res = await fetch('/api/chat/flavor-prompt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ flavor })
       });
       const data = await res.json();
-      if (data && data.prompt) setInput(data.prompt);
-      else setInput(`I'm craving something with ${flavor}!`);
+      const prompt = data && data.prompt ? data.prompt : `I'm craving something with ${flavor}!`;
+      
+      // Set the input and add user message
+      setInput(prompt);
+      setMessages(msgs => [...msgs, { role: 'user', content: prompt }]);
+      
+      // Automatically send the request to get menu recommendation
+      const chatRes = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, spiceLevel })
+      });
+      const chatData = await chatRes.json();
+      setMessages(msgs => [...msgs, { role: 'bot', content: chatData.answer }]);
+      
+      // Clear the input after sending
+      setInput('');
     } catch (e) {
-      setInput(`I'm craving something with ${flavor}!`);
+      const fallbackPrompt = `I'm craving something with ${flavor}!`;
+      setInput(fallbackPrompt);
+      setMessages(msgs => [...msgs, { role: 'user', content: fallbackPrompt }]);
+      setMessages(msgs => [...msgs, { role: 'bot', content: 'Sorry, there was an error connecting to the server.' }]);
     }
     setLoading(false);
   };

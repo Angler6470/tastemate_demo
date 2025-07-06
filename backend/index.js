@@ -28,4 +28,6 @@ mongoose.connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
   .catch(err => {
     console.error('MongoDB connection error:', err);
     console.log('Running in demo mode without database');
+    // Start server anyway without database
+    app.listen(PORT, () => console.log(`Server running on port ${PORT} (demo mode)`));
   });
