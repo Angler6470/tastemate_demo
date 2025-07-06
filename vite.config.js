@@ -5,12 +5,12 @@ export default defineConfig({
   plugins: [react()],
   server: {
     host: true,
-    port: 5173,
+    port: 5000,
     allowedHosts: [
       "5272d309-2a2e-459b-a4e2-46a54cd9f1cc-00-9g20n00lywdw.spock.replit.dev",
     ],
     proxy: {
-      '/api': 'http://localhost:5000',
+      '/api': 'http://localhost:3001',
     },
   },
 });
