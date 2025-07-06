@@ -7,7 +7,7 @@ export default defineConfig({
     host: true,
     port: 5173,
     allowedHosts: [
-      "18322abe-9e44-43de-a485-e42fbb284294-00-2umn6e0kizgy5.riker.replit.dev",
+      "5272d039-2a2e-459b-ae42-46a54cd9f1cc-00-9g2n60ylwdw.spock.replit.dev",
     ],
     proxy: {
       '/api': 'http://localhost:5000',
