@@ -2,7 +2,7 @@ import React from 'react';
 import { useLang } from '../context/LanguageContext';
 
 // SpiceSlider component: allows users to select spice level
-export default function SpiceSlider({ value, onChange }) {
+export default function SpiceSlider({ value, setValue }) {
   const { t } = useLang();
   const spiceLabels = ['None', 'Mild', 'Medium', 'Hot', 'Fire!'];
 
@@ -17,7 +17,7 @@ export default function SpiceSlider({ value, onChange }) {
           min="0"
           max="4"
           value={value}
-          onChange={onChange}
+          onChange={(e) => setValue(parseInt(e.target.value))}
           className="w-32 accent-red-500"
         />
         <span className="text-sm font-bold text-red-600 dark:text-red-400 min-w-[60px]">
