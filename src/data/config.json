@@ -26,8 +26,7 @@
     "Crunchy"
   ],
   "messages": {
-    "welcome": "👋 Hi! I’m TasteMate, your flavor buddy. Based on your cravings, here’s a tasty pick:",
-    "sample": "Mac & Melt Bites (Cheesy and Mild)",
+    "welcome": "👋 Hi! I'm TasteMate, your flavor buddy. Based on your cravings, here's a tasty pick:",
     "inputPlaceholder": "Tell me what you're craving...",
     "spicePrompt": "How Spicy?"
   }
