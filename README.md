@@ -59,4 +59,47 @@ Welcome to the TasteMate demo! This project is a full-stack AI-powered food chat
 
 ---
 
+## 🛒 For Envato Buyers
+
+### 🌐 Live Demo
+You can see TasteMate in action at: [Your Replit URL here]
+
+### 🍽️ Customizing Menu Items
+Edit `/src/data/menu.json` to modify the food menu:
+```json
+{
+  "categories": {
+    "appetizers": [
+      {
+        "name": "Your Custom Dish",
+        "description": "Your description here",
+        "price": "$9.99"
+      }
+    ]
+  }
+}
+```
+
+### 🎨 Adding Flavors & Spiciness Options
+- **Flavors**: Edit `/src/data/config.json` → `"flavors"` array
+- **Spice levels**: Modify `/src/components/SpiceSlider.jsx` (currently 0-4 scale)
+
+### 🌍 Translation & Localization
+- **English**: `/src/i18n/en.json`
+- **Spanish**: `/src/i18n/es.json`
+- **Add new languages**: Create new JSON files and update `/src/context/LanguageContext.jsx`
+
+### 🚀 Deployment on Replit
+1. Fork this Repl
+2. Add your OpenAI API key to Secrets (or `.env`)
+3. Click "Deploy" in the Deployments tab
+4. Your app will be live at your custom Replit domain
+
+### 🔧 Backend Usage
+- **Demo Mode**: No database required (current setup)
+- **Production Mode**: Set `MONGO_URI` in environment variables to enable MongoDB
+- **Optional Features**: Auth routes (`/backend/routes/auth.js`) and stats (`/backend/routes/stats.js`) for user management and analytics
+
+---
+
 Enjoy demoing TasteMate! If you have questions or need further tweaks, just ask.
