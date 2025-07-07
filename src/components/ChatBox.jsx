@@ -5,8 +5,8 @@ import SpiceSlider from './SpiceSlider';
 export default function ChatBox({ input, setInput, spiceLevel, setSpiceLevel, messages, loading }) {
   const { t } = useLang();
   return (
-    <div className="flex flex-col gap-2 sm:gap-3 w-full">
-      <div className="flex flex-col gap-1 max-h-48 sm:max-h-64 overflow-y-auto bg-gray-50 dark:bg-gray-900 p-2 sm:p-3 rounded w-full">
+    <div className="flex flex-col gap-1 sm:gap-3 w-full">
+      <div className="flex flex-col gap-1 max-h-40 sm:max-h-64 overflow-y-auto bg-gray-50 dark:bg-gray-900 p-2 sm:p-3 rounded w-full">
         {messages.map((msg, i) => (
           <div key={i} className={msg.role === 'user' ? 'text-right' : 'text-left'}>
             <span className={msg.role === 'user' ? 'font-semibold text-teal-600' : 'font-semibold text-orange-600'}>
