@@ -22,6 +22,11 @@ export default function PromoCarousel() {
 
 	useEffect(() => {
 		setImgLoaded(false);
+		// Fallback timeout to ensure image shows even if onLoad doesn't fire
+		const fallbackTimer = setTimeout(() => {
+			setImgLoaded(true);
+		}, 1000);
+		return () => clearTimeout(fallbackTimer);
 	}, [currentIndex]);
 
 	const currentPromo = promos[currentIndex];
@@ -36,6 +41,7 @@ export default function PromoCarousel() {
 					alt="Promo"
 					className={`w-full h-full object-cover fade-in${imgLoaded ? " loaded" : ""}`}
 					onLoad={() => setImgLoaded(true)}
+					onError={() => setImgLoaded(true)}
 				/>
 				{/* Caption overlay */}
 				<div className="absolute bottom-0 left-0 w-full bg-black/40 text-white text-xs sm:text-sm font-semibold text-center px-2 sm:px-4 py-2 sm:py-3 z-10 backdrop-blur-sm">
