@@ -134,6 +134,7 @@ export default function App() {
                     onClick={handleSend}
                     className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full"
                     disabled={loading}
+                    aria-label="Send message"
                   >
                     Send
                   </button>

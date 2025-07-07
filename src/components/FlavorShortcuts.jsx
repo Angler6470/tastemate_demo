@@ -47,6 +47,7 @@ export default function FlavorShortcuts({ onFlavorClick }) {
             key={flavor}
             ref={btnRef}
             className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full border border-gray-200 dark:border-gray-700 shadow-sm transition-colors ${flavorGradients[flavor] || 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100'}`}
+            aria-label={`Select ${flavor} flavor`}
             onMouseDown={e => {
               btnRef.current?.classList.add('shortcut-animate');
             }}

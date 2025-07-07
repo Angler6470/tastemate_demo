@@ -37,6 +37,7 @@ export default function SpiceSlider() {
         max="4"
         value={spiceLevel}
         onChange={(e) => handleSpiceClick(Number(e.target.value))}
+        aria-label={`${t('spicePrompt')} - Level ${spiceLevel} of 4`}
         className={`slider slider-color-${spiceLevel}`}
         style={{
           // fallback for browsers that don't support custom classes
@@ -56,6 +57,10 @@ export default function SpiceSlider() {
             key={level}
             className={`cursor-pointer ${getSpiceGlow(level, spiceLevel)} ${spiceLevel === level ? 'animate-wiggle' : ''}`}
             onClick={() => handleSpiceClick(level)}
+            role="button"
+            tabIndex={0}
+            aria-label={`Set spice level to ${level === 0 ? 'mild' : level} ${level === 0 ? '(snowflake)' : '(chili)'}`}
+            onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleSpiceClick(level)}
           >
             {/* Snowflake for 0, chili for others */}
             {level === 0 ? '❄️' : '🌶️'}
