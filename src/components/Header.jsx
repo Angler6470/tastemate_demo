@@ -21,7 +21,7 @@ export default function Header() {
         <button
           onClick={() => setDark(!dark)}
           className="text-xl hover:scale-105 transition"
-          aria-label="Toggle dark mode"
+          aria-label="Toggle theme between dark and light mode"
         >
           {dark ? '🌞' : '🌙'}
         </button>

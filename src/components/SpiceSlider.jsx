@@ -37,7 +37,7 @@ export default function SpiceSlider() {
         max="4"
         value={spiceLevel}
         onChange={(e) => handleSpiceClick(Number(e.target.value))}
-        aria-label={`${t('spicePrompt')} - Level ${spiceLevel} of 4`}
+        aria-label={`Set spice level to ${spiceLevel === 0 ? 'mild' : spiceLevel} out of 4`}
         className={`slider slider-color-${spiceLevel}`}
         style={{
           // fallback for browsers that don't support custom classes
