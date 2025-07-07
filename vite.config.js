@@ -8,7 +8,7 @@ export default defineConfig({
     allowedHosts: ['5272d309-2a2e-459b-a4e2-46a54cd9f1cc-00-9g20n00lywdw.spock.replit.dev'],
     proxy: {
       '/api': {
-        target: 'http://localhost:3001',
+        target: 'http://0.0.0.0:3001', // Use IP rather than hostname
         changeOrigin: true
       }
     }
