@@ -18,20 +18,27 @@ app.use("/api/stats", statsRoutes);
 app.use("/api/chat", chatRoutes);
 
 const PORT = process.env.PORT || 3001;
-const MONGO_URI =
-  process.env.MONGO_URI || "mongodb://localhost:27017/tastemate";
+const MONGO_URI = process.env.MONGO_URI;
+const DEMO_MODE = !MONGO_URI || process.env.DEMO_MODE === 'true';
 
-mongoose
-  .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => {
-    app.listen(PORT, "0.0.0.0", () =>
-      console.log(`Server running on port ${PORT}`),
-    );
-  })
-  .catch((err) => {
-    console.error("MongoDB connection error:", err);
-    console.log("Running in demo mode without database");
-    app.listen(PORT, "0.0.0.0", () =>
-      console.log(`Server running on port ${PORT} (demo mode)`),
-    );
-  });
+if (DEMO_MODE) {
+  console.log("Running in demo mode without database");
+  app.listen(PORT, "0.0.0.0", () =>
+    console.log(`Server running on port ${PORT} (demo mode)`),
+  );
+} else {
+  mongoose
+    .connect(MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+    .then(() => {
+      app.listen(PORT, "0.0.0.0", () =>
+        console.log(`Server running on port ${PORT}`),
+      );
+    })
+    .catch((err) => {
+      console.error("MongoDB connection error:", err);
+      console.log("Running in demo mode without database");
+      app.listen(PORT, "0.0.0.0", () =>
+        console.log(`Server running on port ${PORT} (demo mode)`),
+      );
+    });
+}
