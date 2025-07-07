@@ -68,10 +68,23 @@ export default function App() {
         body: JSON.stringify({ flavor })
       });
       const data = await res.json();
-      if (data && data.prompt) setInput(data.prompt);
-      else setInput(`I'm craving something with ${flavor}!`);
+      const prompt = data && data.prompt ? data.prompt : `I'm craving something with ${flavor}!`;
+      
+      // Add the prompt as a user message
+      setMessages(msgs => [...msgs, { role: 'user', content: prompt }]);
+      
+      // Send the prompt to get a chatbot response
+      const chatRes = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ prompt, spiceLevel })
+      });
+      const chatData = await chatRes.json();
+      setMessages(msgs => [...msgs, { role: 'bot', content: chatData.answer }]);
     } catch (e) {
-      setInput(`I'm craving something with ${flavor}!`);
+      const fallbackPrompt = `I'm craving something with ${flavor}!`;
+      setMessages(msgs => [...msgs, { role: 'user', content: fallbackPrompt }]);
+      setMessages(msgs => [...msgs, { role: 'bot', content: 'Sorry, there was an error.' }]);
     }
     setLoading(false);
   };
