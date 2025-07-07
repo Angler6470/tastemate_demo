@@ -39,14 +39,14 @@ export default function FlavorShortcuts({ onFlavorClick }) {
   const keys = Array.isArray(flavorKeys) ? flavorKeys : Object.keys(flavorGradients);
 
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 w-full">
+    <div className="grid grid-cols-2 sm:grid-cols-3 gap-1.5 sm:gap-2 w-full px-1 sm:px-0">
       {keys.map(flavor => {
         const btnRef = useRef();
         return (
           <button
             key={flavor}
             ref={btnRef}
-            className={`flex items-center gap-2 px-2 py-1 text-sm rounded-full border border-gray-200 dark:border-gray-700 shadow-sm transition-colors ${flavorGradients[flavor] || 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100'}`}
+            className={`flex items-center gap-1 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 text-xs sm:text-sm rounded-full border border-gray-200 dark:border-gray-700 shadow-sm transition-colors ${flavorGradients[flavor] || 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100'}`}
             aria-label={`Select ${flavor} flavor`}
             onMouseDown={e => {
               btnRef.current?.classList.add('shortcut-animate');
@@ -59,7 +59,7 @@ export default function FlavorShortcuts({ onFlavorClick }) {
             }}
             onClick={() => onFlavorClick && onFlavorClick(flavor)}
           >
-            <span className="text-lg" aria-hidden="true">{flavorIcons[flavor] || '🍽️'}</span>
+            <span className="text-sm sm:text-lg" aria-hidden="true">{flavorIcons[flavor] || '🍽️'}</span>
             {flavor}
           </button>
         );

@@ -98,16 +98,16 @@ export default function App() {
           <AdminRoute />
         </Suspense>
       ) : (
-        <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-2 sm:p-4 space-y-4 mx-auto min-h-screen flex flex-col justify-center">
+        <div className="w-full max-w-md bg-white dark:bg-gray-800 rounded-2xl shadow-xl p-3 sm:p-4 space-y-3 sm:space-y-4 mx-auto min-h-screen flex flex-col justify-center">
           {/* Header with theme and language controls */}
           <Suspense fallback={<div>Loading...</div>}>
             <Header />
             {/* Logo section */}
-            <div className="flex flex-col items-center p-0.5">
+            <div className="flex flex-col items-center py-2 sm:py-3">
               <img
                 src="/images/logo.png"
                 alt="TasteMate Logo"
-                className="w-28 h-28 mb-2 transition-transform fast-spin"
+                className="w-24 h-24 sm:w-28 sm:h-28 mb-1 sm:mb-2 transition-transform fast-spin"
                 loading="lazy"
               />
             </div>
@@ -126,8 +126,8 @@ export default function App() {
             />
             <FlavorShortcuts onFlavorClick={handleFlavorClick} />
             {/* Action buttons at the very end, below hotkeys */}
-            <div className="flex flex-col items-center space-y-2 mt-2">
-              <div className="flex gap-2 justify-center">
+            <div className="flex flex-col items-center space-y-2 mt-1 sm:mt-2 pt-2">
+              <div className="flex gap-2 sm:gap-3 justify-center">
                 <Suspense fallback={null}>
                   <SurpriseButton onSurprise={handleSurprise} disabled={loading || surpriseLoading} loading={surpriseLoading} />
                   <button
