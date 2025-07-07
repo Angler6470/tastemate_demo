@@ -8,6 +8,7 @@ export default function SendButton({ onClick, disabled }) {
   return (
     <button
       onClick={onClick}
+      aria-label={t('send')}
       className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full"
       disabled={disabled}
     >
