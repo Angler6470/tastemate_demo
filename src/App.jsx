@@ -1,13 +1,14 @@
 import React, { Suspense, lazy, useState } from 'react';
 
 // Lazy load all main components
-const ChatBox = lazy(() => import('./components/ChatBox'));
+const Header = lazy(() => import('./components/Header'));
+const PromoCarousel = lazy(() => import('./components/PromoCarousel'));
+const ChatIntro = lazy(() => import('./components/ChatIntro'));
 const FlavorShortcuts = lazy(() => import('./components/FlavorShortcuts'));
 const SurpriseButton = lazy(() => import('./components/SurpriseButton'));
 const SendButton = lazy(() => import('./components/SendButton'));
-const PromoCarousel = lazy(() => import('./components/PromoCarousel'));
-const ChatIntro = lazy(() => import('./components/ChatIntro'));
-const Header = lazy(() => import('./components/Header'));
+const AdminRoute = lazy(() => import('./admin/AdminRoute'));
+const ChatBox = lazy(() => import('./components/ChatBox'));
 import { LanguageProvider } from './context/LanguageContext.jsx';
 
 // Main App component: wraps all UI components for the TasteMate app
@@ -57,39 +58,20 @@ export default function App() {
     setSurpriseLoading(false);
   };
 
-  // Handler for hotkey click to get a fun prompt from OpenAI and auto-send
+  // Handler for hotkey click to get a fun prompt from OpenAI
   const handleFlavorClick = async (flavor) => {
     setLoading(true);
     try {
-      // First, get the creative prompt
       const res = await fetch('/api/chat/flavor-prompt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ flavor })
       });
       const data = await res.json();
-      const prompt = data && data.prompt ? data.prompt : `I'm craving something with ${flavor}!`;
-
-      // Set the input and add user message
-      setInput(prompt);
-      setMessages(msgs => [...msgs, { role: 'user', content: prompt }]);
-
-      // Automatically send the request to get menu recommendation
-      const chatRes = await fetch('/api/chat', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ prompt, spiceLevel })
-      });
-      const chatData = await chatRes.json();
-      setMessages(msgs => [...msgs, { role: 'bot', content: chatData.answer }]);
-
-      // Clear the input after sending
-      setInput('');
+      if (data && data.prompt) setInput(data.prompt);
+      else setInput(`I'm craving something with ${flavor}!`);
     } catch (e) {
-      const fallbackPrompt = `I'm craving something with ${flavor}!`;
-      setInput(fallbackPrompt);
-      setMessages(msgs => [...msgs, { role: 'user', content: fallbackPrompt }]);
-      setMessages(msgs => [...msgs, { role: 'bot', content: 'Sorry, there was an error connecting to the server.' }]);
+      setInput(`I'm craving something with ${flavor}!`);
     }
     setLoading(false);
   };

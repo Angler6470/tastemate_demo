@@ -1,43 +1,66 @@
-import React from 'react';
+import React, { useState } from "react";
 import { useLang } from '../context/LanguageContext';
 
-// SpiceSlider component: allows users to select spice level
-export default function SpiceSlider({ value, setValue }) {
+// Helper to get color classes for each spice level
+const getSpiceGlow = (level, current) => {
+  if (current === 0 && level === 0) return 'text-blue-500';
+  if (current < level) return 'text-gray-400';
+  // Gradually increase from orange to red
+  switch (level) {
+    case 1: return 'text-orange-400 spice-glow-1';
+    case 2: return 'text-orange-500 spice-glow-2';
+    case 3: return 'text-orange-600 spice-glow-3';
+    case 4: return 'text-red-500 spice-glow-4';
+    default: return 'text-red-500';
+  }
+};
+
+// SpiceSlider component: lets users select their preferred spice level
+export default function SpiceSlider() {
+  // State for the current spice level
+  const [spiceLevel, setSpiceLevel] = useState(0);
   const { t } = useLang();
-  const spiceLabels = ['None', 'Mild', 'Medium', 'Hot', 'Fire!'];
-  const spiceColors = ['#38bdf8', '#fdba74', '#fb923c', '#ea580c', '#b91c1c'];
-  const spiceEmojis = ['❄️', '🌶️', '🔥', '🌋', '💀'];
+
+  // Handles user clicking on a spice level
+  const handleSpiceClick = (level) => {
+    setSpiceLevel(level);
+    console.log(`Selected spice level: ${level}`);
+  };
 
   return (
-    <div className="flex flex-col items-center space-y-3 mb-4 p-3 bg-gray-50 dark:bg-gray-800 rounded-lg">
-      <label className="text-sm font-medium text-gray-700 dark:text-gray-300">
-        {t('spicePrompt')}
-      </label>
-      <div className="flex items-center space-x-3 w-full">
-        <span className="text-lg">{spiceEmojis[0]}</span>
-        <input
-          type="range"
-          min="0"
-          max="4"
-          value={value}
-          onChange={(e) => setValue(parseInt(e.target.value))}
-          className={`flex-1 h-2 rounded-lg appearance-none cursor-pointer slider-color-${value}`}
-          style={{
-            background: `linear-gradient(to right, ${spiceColors[value]} 0%, ${spiceColors[value]} ${(value / 4) * 100}%, #e5e7eb ${(value / 4) * 100}%, #e5e7eb 100%)`
-          }}
-        />
-        <span className="text-lg">{spiceEmojis[4]}</span>
-      </div>
-      <div className="flex items-center space-x-2">
-        <span className="text-lg">{spiceEmojis[value]}</span>
-        <span 
-          className={`text-sm font-bold min-w-[60px] transition-all duration-300 ${
-            value > 0 ? `spice-glow-${value}` : ''
-          }`}
-          style={{ color: spiceColors[value] }}
-        >
-          {spiceLabels[value]}
-        </span>
+    <div className="spice-slider">
+      <h2>{t('spicePrompt')}</h2>
+      {/* Range slider for spice level, with dynamic color */}
+      <input
+        type="range"
+        min="0"
+        max="4"
+        value={spiceLevel}
+        onChange={(e) => handleSpiceClick(Number(e.target.value))}
+        className={`slider slider-color-${spiceLevel}`}
+        style={{
+          // fallback for browsers that don't support custom classes
+          accentColor: [
+            '#38bdf8', // blue for 0
+            '#fdba74', // orange-300 for 1
+            '#fb923c', // orange-400 for 2
+            '#ea580c', // orange-600 for 3
+            '#b91c1c'  // red-800 for 4
+          ][spiceLevel]
+        }}
+      />
+      {/* Spice icons for each level */}
+      <div className="flex justify-around items-center">
+        {[0, 1, 2, 3, 4].map((level) => (
+          <span
+            key={level}
+            className={`cursor-pointer ${getSpiceGlow(level, spiceLevel)} ${spiceLevel === level ? 'animate-wiggle' : ''}`}
+            onClick={() => handleSpiceClick(level)}
+          >
+            {/* Snowflake for 0, chili for others */}
+            {level === 0 ? '❄️' : '🌶️'}
+          </span>
+        ))}
       </div>
     </div>
   );
