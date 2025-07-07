@@ -80,6 +80,24 @@ body {
   }
 }
 
+/* Adding margin to separate sections */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+    /* Ensure a general padding for mobile */
+  }
+
+  /* Spacing for section headers and content */
+  .section-header {
+    margin-bottom: 1rem;
+  }
+
+  .chat-input {
+    margin-bottom: 2rem;
+    /* Ensure input isn't too close to the bottom */
+  }
+}
+
 .fade-in {
   opacity: 0;
   transition: opacity 0.5s cubic-bezier(0.4, 0, 0.2, 1);
