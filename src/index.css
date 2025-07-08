@@ -10,7 +10,7 @@
 
 body {
   /* App background image for flavor */
-  background-image: url('/images/tastemate-bg.png');
+  background-image: url('/images/tastemate-bg.webp');
   background-size: cover;
   background-repeat: no-repeat;
 }

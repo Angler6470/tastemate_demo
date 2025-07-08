@@ -1,14 +1,13 @@
-
 {
   "promos": [
     {
-      "image": "promo1.png"
+      "image": "promo1.webp"
     },
     {
-      "image": "promo2.png"
+      "image": "promo2.webp"
     },
     {
-      "image": "promo3.png"
+      "image": "promo3.webp"
     }
   ],
   "flavors": [
