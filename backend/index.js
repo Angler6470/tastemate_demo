@@ -23,6 +23,35 @@ app.use("/api/auth", authRoutes);
 app.use("/api/stats", statsRoutes);
 app.use("/api/chat", chatRoutes);
 
+// Serve static files in production
+if (process.env.NODE_ENV === 'production' || process.env.REPL_DEPLOYMENT) {
+  const path = await import('path');
+  const { fileURLToPath } = await import('url');
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+  // Serve static files from the built frontend
+  app.use(express.static(path.join(__dirname, '../dist')));
+
+  // Serve favicon specifically
+  app.get('/favicon.ico', (req, res) => {
+    res.sendFile(path.join(__dirname, '../public/images/favicon.ico'));
+  });
+
+  // Serve images from public directory
+  app.use('/images', express.static(path.join(__dirname, '../public/images')));
+}
+
+// Catch-all handler for SPA in production
+if (process.env.NODE_ENV === 'production' || process.env.REPL_DEPLOYMENT) {
+  const path = await import('path');
+  const { fileURLToPath } = await import('url');
+  const __dirname = path.dirname(fileURLToPath(import.meta.url));
+
+  app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, '../dist/index.html'));
+  });
+}
+
 const PORT = process.env.PORT || 3001;
 const MONGO_URI = process.env.MONGO_URI;
 const DEMO_MODE = !MONGO_URI || process.env.DEMO_MODE === 'true';
