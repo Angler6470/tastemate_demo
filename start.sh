@@ -29,5 +29,5 @@ else
   fi
 
   # Start both frontend and backend concurrently
-  npx concurrently "cd backend && PORT=3001 npm start" "npm run dev"
+  npx concurrently "cd backend && PORT=3001 npm start" "npm run dev -- --port 5173 --host 0.0.0.0"
 fi

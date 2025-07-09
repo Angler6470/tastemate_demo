@@ -3,7 +3,7 @@
   "name": "tastemate-ui",
   "version": "1.0.0",
   "scripts": {
-    "dev": "vite --host --port 5000",
+    "dev": "vite --port 5173 --host 0.0.0.0",
     "build": "vite build",
     "preview": "vite preview",
     "start": "cd backend && npm start"
