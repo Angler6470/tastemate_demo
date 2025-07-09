@@ -22,7 +22,7 @@ export default function SurpriseButton({ onSurprise, disabled, loading }) {
     <button
       onClick={() => onSurprise(randomSurprise())}
       aria-label={t('Click to get a surprise food suggestion')}
-      className="bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full"
+      className="action-button bg-yellow-500 hover:bg-yellow-600 text-white px-4 py-2 rounded-full"
       disabled={disabled}
     >
       {loading ? '🔄' : t('surprise')}

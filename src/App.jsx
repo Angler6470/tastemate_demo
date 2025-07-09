@@ -132,7 +132,7 @@ export default function App() {
                   <SurpriseButton onSurprise={handleSurprise} disabled={loading || surpriseLoading} loading={surpriseLoading} />
                   <button
                     onClick={handleSend}
-                    className="bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full"
+                    className="action-button bg-teal-500 hover:bg-teal-600 text-white px-4 py-2 rounded-full"
                     disabled={loading}
                     aria-label="Send message"
                   >

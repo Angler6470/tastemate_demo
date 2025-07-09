@@ -8,6 +8,13 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Consistent button sizing to prevent layout shifts between languages */
+.action-button {
+  min-width: 120px;
+  white-space: nowrap;
+  text-align: center;
+}
+
 body {
   /* App background image for flavor */
   background-image: url('/images/tastemate-bg.webp');
