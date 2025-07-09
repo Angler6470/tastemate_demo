@@ -8,5 +8,17 @@
   "promo2": "A vibrant platter of tortilla chips served with three house-made salsas: mild tomato, medium verde, and fiery habanero.",
   "promo3": "Golden fried cheese bites with a creamy dipping sauce. Melty, gooey, and perfect for late-night cravings.",
   "theme": "Theme",
-  "language": "Language"
+  "language": "Language",
+  "flavors": [
+    "Sweet",
+    "Savory",
+    "Spicy",
+    "Tangy",
+    "Creamy",
+    "Smoky",
+    "Fresh",
+    "Vegetarian",
+    "Cheesy",
+    "Crunchy"
+  ]
 }

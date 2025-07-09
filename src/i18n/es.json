@@ -8,5 +8,17 @@
   "promo2": "Un plato vibrante de chips de tortilla servido con tres salsas caseras: tomate suave, verde medio, y habanero picante.",
   "promo3": "Bolitas de queso doradas y fritas con salsa cremosa para dipear. Derretidas, pegajosas y perfectas para antojos nocturnos.",
   "theme": "Tema",
-  "language": "Idioma"
+  "language": "Idioma",
+  "flavors": [
+    "Dulce",
+    "Salado",
+    "Picante",
+    "Ácido",
+    "Cremoso",
+    "Ahumado",
+    "Fresco",
+    "Vegetariano",
+    "Quesoso",
+    "Crujiente"
+  ]
 }

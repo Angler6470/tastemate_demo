@@ -1,24 +1,32 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import en from '../i18n/en.json';
-import es from '../i18n/es.json';
 
-// Create a context for language
 const LanguageContext = createContext();
 
-// Provider component to wrap the app and provide language state
 export const LanguageProvider = ({ children }) => {
-  // State for current language, default to localStorage or 'en'
-  const [lang, setLang] = useState(localStorage.getItem('lang') || 'en');
-  // Language dictionaries
-  const languages = { en, es };
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'en');
+  const [translations, setTranslations] = useState({});
 
-  // Translation function: returns translation or key if missing
-  const t = (key) => languages[lang][key] || key;
+  useEffect(() => {
+    const loadTranslations = async () => {
+      try {
+        const en = await import('../i18n/en.json');
+        const es = await import('../i18n/es.json');
+        setTranslations({ en: en.default, es: es.default });
+      } catch (err) {
+        console.error('Translation load failed', err);
+      }
+    };
+    loadTranslations();
+  }, []);
 
-  // Update localStorage when language changes
   useEffect(() => {
     localStorage.setItem('lang', lang);
   }, [lang]);
+
+  const t = (key) => {
+    const result = translations[lang]?.[key];
+    return result !== undefined ? result : key;
+  };
 
   return (
     <LanguageContext.Provider value={{ lang, setLang, t }}>
@@ -27,5 +35,4 @@ export const LanguageProvider = ({ children }) => {
   );
 };
 
-// Custom hook for using language context
 export const useLang = () => useContext(LanguageContext);
