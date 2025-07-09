@@ -7,9 +7,9 @@
 if [ "$NODE_ENV" = "production" ] || [ -n "$REPL_DEPLOYMENT" ]; then
   echo "Running in production mode"
   
-  # Install dependencies
-  cd backend && npm install && cd ..
-  npm install
+  # Install dependencies and fix vulnerabilities
+  cd backend && npm install && npm audit fix && cd ..
+  npm install && npm audit fix
   
   # Build the frontend
   npm run build

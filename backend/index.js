@@ -52,12 +52,12 @@ if (process.env.NODE_ENV === 'production' || process.env.REPL_DEPLOYMENT) {
   });
 }
 
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || (process.env.NODE_ENV === 'production' || process.env.REPL_DEPLOYMENT ? 80 : 3001);
 const MONGO_URI = process.env.MONGO_URI;
 const DEMO_MODE = !MONGO_URI || process.env.DEMO_MODE === 'true';
 
 if (DEMO_MODE) {
-  console.log("Running in demo mode without database");
+  console.log(`Running in demo mode without database on port ${PORT}`);
   app.listen(PORT, "0.0.0.0", () =>
     console.log(`Server running on port ${PORT} (demo mode)`),
   );
@@ -71,7 +71,7 @@ if (DEMO_MODE) {
     })
     .catch((err) => {
       console.error("MongoDB connection error:", err);
-      console.log("Running in demo mode without database");
+      console.log(`Running in demo mode without database on port ${PORT}`);
       app.listen(PORT, "0.0.0.0", () =>
         console.log(`Server running on port ${PORT} (demo mode)`),
       );

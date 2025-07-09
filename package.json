@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "vite --host --port 5000",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "cd backend && npm start"
   },
   "dependencies": {
     "react": "^18.2.0",
