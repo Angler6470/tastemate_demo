@@ -18,7 +18,7 @@ const flavorGradients = {
 
 // Emoji icons for each flavor (use fire for Spicy)
 const flavorIcons = {
-  Sweet: '🍬',
+  Sweet: '🍯',
   Savory: '🍖',
   Spicy: '🔥', // fire for spicy
   Tangy: '🍋',
