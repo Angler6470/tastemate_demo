@@ -12,6 +12,12 @@ dotenv.config();
 const app = express();
 app.use(cors());
 app.use(express.json());
+app.use(express.static('public'));
+
+// Handle favicon requests to prevent 500 errors
+app.get('/favicon.ico', (req, res) => {
+  res.status(204).end(); // No content response
+});
 
 app.use("/api/auth", authRoutes);
 app.use("/api/stats", statsRoutes);
