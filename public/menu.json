@@ -171,7 +171,7 @@
 			"description": "Sizzling platter of seasoned mixed vegetables, served with warm tortillas.",
 			"price": 13.99,
 			"type": "meal",
-			"image": "https://images.unsplash.com/photo-1534353473418-4cfa6c56fd38?auto=format&fit=crop&w=800&q=80",
+			"image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=80",
 			"tags": ["Vegetarian", "Healthy"],
 			"ingredients": ["Bell Pepper", "Onion", "Tomato", "Corn Tortilla", "Cilantro"],
 			"scoring": {
